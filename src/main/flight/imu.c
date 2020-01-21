@@ -425,10 +425,18 @@ static void imuMahonyAHRSupdate(float dt, const fpVector3_t * gyroBF, const fpVe
                 vectorScale(&vGravityCMSS, &vGravity, GRAVITY_CMSS);
                 vectorSub(&vTmp1, &vGravityCMSS, &vTmp1);
 
+                DEBUG_SET(DEBUG_ALWAYS, 0, vTmp1.x);
+                DEBUG_SET(DEBUG_ALWAYS, 1, vTmp1.y);
+                DEBUG_SET(DEBUG_ALWAYS, 2, vTmp1.z);
+
                 if (sqrtf(vectorNormSquared(&vTmp1)) > 0.01f) {
                     // Calculate acceleration by taking a derivative of acceleration integral
                     // This effectively calculates average acceleration, but in a way that's more immune to jitter
                     vectorScale(&vTmp2, &vVelEF_AccIntegal, 1.0f / vVelEF_integralTime);
+
+                    DEBUG_SET(DEBUG_ALWAYS, 3, vTmp2.x);
+                    DEBUG_SET(DEBUG_ALWAYS, 4, vTmp2.y);
+                    DEBUG_SET(DEBUG_ALWAYS, 5, vTmp2.z);
 
                     // At this point:
                     //   vTmp1 - average G-A vector in Earth frame as seen by the accelerometer
