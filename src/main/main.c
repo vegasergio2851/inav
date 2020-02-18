@@ -57,8 +57,9 @@ int main(void)
 {
     init();
     loopbackInit();
-
-    while (true) {
+    printf("Started");
+    while (1) {
+        
         scheduler();
         processLoopback();
     }
