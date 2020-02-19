@@ -17,6 +17,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdio.h>
 
 #include "platform.h"
 #include "build/debug.h"
@@ -57,7 +58,7 @@ int main(void)
 {
     init();
     loopbackInit();
-    printf("Started");
+    printf("Program Started");
     while (1) {
         
         scheduler();
