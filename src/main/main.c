@@ -60,7 +60,7 @@ int main(void)
     loopbackInit();
     printf("Program Started");
     while (true) {
-        ==jscheduler();
+        scheduler();
         processLoopback();
     }
 }
